@@ -24,8 +24,8 @@ function sendIndexHtml(res){
   let indexFile = path.join(__dirname, 'index.html');
   fs.readFile(indexFile, (err, content) => {
     if(err){
-      res.writeHead(404, {'Content-Type': 'application/json'});
-      res.write({"message":"File Not Found!"});
+      res.writeHead(404, {'Content-Type': 'text'});
+      res.write('File Not Found!');
       res.end();
     }else{
       res.writeHead(200, {'Content-Type': 'text/html'});
@@ -56,8 +56,8 @@ function sendUploadedFile(url, res){
   let file = path.join(__dirname, url);
   fs.readFile(file, (err, content) => {
     if(err){
-      res.writeHead(404, {'Content-Type': 'application/json'});
-      res.write({"message":"File Not Found!"});
+      res.writeHead(404, {'Content-Type': 'text'});
+      res.write('File Not Found!');
       res.end();
     }else{
       res.writeHead(200, {'Content-Type': 'application/octet-stream'});
@@ -74,8 +74,8 @@ function saveUploadedFile(req, res){
   let file = path.join(__dirname, 'download', fileName)
   req.pipe(fs.createWriteStream(file));
   req.on('end', () => {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.write({"message":"uploaded succesfully"});
+    res.writeHead(200, {'Content-Type': 'text'});
+    res.write('uploaded succesfully');
     res.end();
   })
 }
