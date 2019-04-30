@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-download-upload-server",
+  "version": "1.0.0",
+  "description": "A sample Node.js download e upload server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/levimj92/nodejs-download-upload-server.git"
+  },
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "license": "MIT"
+}
