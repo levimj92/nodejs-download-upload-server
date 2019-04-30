@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-let port = process.argv[2] || 3000;
+let port = process.env.PORT || process.argv[2] || 3000;
 const httpServer = http.createServer(requestHandler);
 httpServer.listen(port, () => {console.log('server is listening on port '+ port)});
 
