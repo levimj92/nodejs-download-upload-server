@@ -74,7 +74,9 @@ function saveUploadedFile(req, res){
   let fileName = path.basename(req.url);
   let file = path.join(__dirname, 'download', fileName)
   req.pipe(fs.createWriteStream(file));
+  console.log('dentro do save upload', req);
   req.on("close", function(){
+    console.log('recebi sinal de close', req);
     req.abort();
   });
   req.on('end', () => {
