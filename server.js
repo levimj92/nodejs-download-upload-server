@@ -7,6 +7,11 @@ const httpServer = http.createServer(requestHandler);
 httpServer.listen(port, () => {console.log('server is listening on port '+ port)});
 
 function requestHandler(req, res){
+  
+  req.on("close", function(){
+    req.abort();
+  });
+  
   if(req.url === '/'){
     sendIndexHtml(res);
   }else if( req.url === '/list'){
